@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/view.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% for file in files %}
+        <div class="media-item">
+            {% if file.endswith('.mp4') %}
+            <video class="media" autoplay controls>
+                <source src="{{ url_for('uploaded_file', filename=file) }}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            {% elif file.endswith('.jpg') or file.endswith('.png') %}
+            <img src="{{ url_for('uploaded_file', filename=file) }}" alt="{{ file }}">
+            {% elif file.endswith('.gif') %}
+            <img src="{{ url_for('uploaded_file', filename=file) }}" alt="{{ file }}">
+            {% else %}
+            <a href="{{ url_for('uploaded_file', filename=file) }}">{{ file }}</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="scroll-prompt" class="prompt">
+        Scroll to see more
+        <button id="dismiss-prompt">Got it!</button>
+    </div>
+
+    <!-- Circular Go Home Button -->
+    <a href="{{ url_for('home') }}" class="btn-home-circle" title="Go Home">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff" width="24px" height="24px">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+    </a>
+
+    <script src="{{ url_for('static', filename='js/view.js') }}"></script>
+</body>
+</html>
