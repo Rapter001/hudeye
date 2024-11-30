@@ -1,11 +1,12 @@
 import os
 import smtplib
 import requests
-from werkzeug.utils import secure_filename
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
-from werkzeug.exceptions import RequestEntityTooLarge
-from email.mime.multipart import MIMEMultipart
+from flask import jsonify
 from email.mime.text import MIMEText
+from werkzeug.utils import secure_filename
+from email.mime.multipart import MIMEMultipart
+from werkzeug.exceptions import RequestEntityTooLarge
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory, flash
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
@@ -42,6 +43,21 @@ def home():
     """
     files = os.listdir(app.config['UPLOAD_FOLDER'])
     return render_template('home.html', files=files)
+
+@app.route('/get_files')
+def get_files():
+    try:
+        files = []
+        for filename in os.listdir("uploads"):
+            file_path = os.path.join("uploads", filename)
+            # Ensure that only files (not directories) are included
+            if os.path.isfile(file_path):
+                files.append(filename)  # Add the file name to the list
+        return jsonify({'files': files})
+    except Exception as e:
+        # Handle any errors (e.g., folder doesn't exist)
+        return jsonify({'error': str(e)}), 500
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
