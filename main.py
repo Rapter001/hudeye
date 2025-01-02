@@ -1,6 +1,7 @@
 import os
 import smtplib
 import requests
+import logging
 from flask import jsonify
 from email.mime.text import MIMEText
 from werkzeug.utils import secure_filename
@@ -13,6 +14,8 @@ app.config["UPLOAD_FOLDER"] = os.path.join(os.path.dirname(__file__), "uploads")
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
 app.config["ALLOWED_EXTENSIONS"] = {"png", "jpg", "svg", "gif", "mp4", "webp", "ogg", "webm", "bmp"}
 app.secret_key = "#U*P5g@x1SwvqP"
+
+logging.basicConfig(level=logging.DEBUG)
 
 if not os.path.exists(app.config["UPLOAD_FOLDER"]):
     os.makedirs(app.config["UPLOAD_FOLDER"])
