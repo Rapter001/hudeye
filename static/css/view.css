@@ -71,7 +71,7 @@ video, img {
     right: 20px;
     width: 80px;
     height: 80px;
-    background: linear-gradient(45deg, #1abc9c, #16a085);
+    background: #000000;
     border-radius: 50%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -91,7 +91,7 @@ video, img {
 .btn-home-circle:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-    background: linear-gradient(45deg, #16a085, #1abc9c);
+    background: #0080ff;
 }
 @media (max-width: 768px) {
     .btn-home-circle {

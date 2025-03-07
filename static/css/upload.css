@@ -6,7 +6,7 @@
 }
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #2c3e50;
+    background-color: #000000;
     color: #333;
     display: flex;
     justify-content: center;
@@ -76,7 +76,6 @@ h1 {
     width: 100%;
 }
 
-/* Buttons */
 button.btn-submit, a.btn-home {
     display: inline-block;
     margin: 15px 0;
@@ -86,16 +85,17 @@ button.btn-submit, a.btn-home {
     color: #fff;
     text-decoration: none;
     border-radius: 10px;
-    background: linear-gradient(45deg, #1abc9c, #16a085);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #000000;
+    border: none;
     transition: all 0.3s ease;
     text-align: center;
 }
+
 button.btn-submit:hover, a.btn-home:hover {
-    background: linear-gradient(45deg, #16a085, #1abc9c);
+    background: #0080ff;
     transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {

@@ -1,6 +1,4 @@
 import os
-import smtplib
-import requests
 from flask import jsonify
 from email.mime.text import MIMEText
 from werkzeug.utils import secure_filename
@@ -28,7 +26,7 @@ def handle_file_size_error(error):
 @app.route("/")
 def home():
     files = os.listdir(app.config["UPLOAD_FOLDER"])
-    return render_template("home.html", files=files)
+    return render_template("index.html", files=files)
 
 @app.route("/get_files")
 def get_files():

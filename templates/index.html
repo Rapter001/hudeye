@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hudeye | Home</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/owl.png') }}" type="image/x-icon">
+</head>
+<body>
+    <div class="hero">
+        <h1>Welcome to Hudeye</h1>
+        <p>Share and explore effortlessly.</p>
+        <div class="button-container">
+            <a href="{{ url_for('upload') }}" class="button">Upload</a>
+            <a href="{{ url_for('view_files') }}" class="button">View</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>About Hudeye</h2>
+        <p>Hudeye is a social media platform where you can upload and view posts easily. Join our community and start sharing today!</p>
+    </div>
+
+    <footer id="footer" class="footer">
+        <p id="year">&copy; All rights reserved.</p>
+        <a href="https://rapter.pages.dev/terms-of-service">Terms of Service</a>
+        <a href="https://rapter.pages.dev/privacy-policy">Privacy Policy</a>
+    </footer>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>
