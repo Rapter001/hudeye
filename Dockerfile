@@ -1,4 +1,4 @@
-FROM python:latest
+FROM python:3.13.2-slim
 
 WORKDIR /app
 
@@ -9,6 +9,6 @@ RUN pip install --no-cache-dir --upgrade pip \
 
 COPY . .
 
-CMD ["python3", "main.py"]
-
 EXPOSE 5000
+
+CMD ["python3", "main.py"]
